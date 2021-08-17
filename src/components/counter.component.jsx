@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
- 
   formatCount = () => {
     if (this.props.value == 0) return "Zero";
     return this.props.value;

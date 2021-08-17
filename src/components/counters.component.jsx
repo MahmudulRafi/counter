@@ -13,8 +13,8 @@ class Counters extends Component {
   };
 
   handleReset = () => {
-    const allCounterRest = this.state.counters.map((counter, idx) => {
-      const obj = { id: idx, value: 0 };
+    const allCounterRest = this.state.counters.map((counter, index) => {
+      const obj = { id: index, value: 0 };
       return obj;
     });
     this.setState({ counters: allCounterRest });
