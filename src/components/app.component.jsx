@@ -43,9 +43,7 @@ class App extends Component {
     getNonZeroItems = () => {
         let countNonZero = 0;
         this.state.counters.forEach((counter) => {
-            if (counter.value > 0) {
-                countNonZero++;
-            }
+            if (counter.value > 0) countNonZero++;
         });
         return countNonZero;
     };
