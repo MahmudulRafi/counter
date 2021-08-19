@@ -23,11 +23,11 @@ class App extends Component {
     };
 
     handleReset = () => {
-        const allCounterRest = this.state.counters.map((counter, index) => {
+        const allCounterReset = this.state.counters.map((counter, index) => {
             const obj = { id: index, value: 0 };
             return obj;
         });
-        this.setState({ counters: allCounterRest });
+        this.setState({ counters: allCounterReset });
     };
 
     handleIncrement = (id) => {
