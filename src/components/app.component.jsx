@@ -14,6 +14,14 @@ class App extends Component {
         ],
     };
 
+    getNonZeroItems = () => {
+        let countNonZero = 0;
+        this.state.counters.forEach((counter) => {
+            if (counter.value > 0) countNonZero++;
+        });
+        return countNonZero;
+    };
+
     handleReset = () => {
         const allCounterRest = this.state.counters.map((counter, index) => {
             const obj = { id: index, value: 0 };
@@ -40,12 +48,11 @@ class App extends Component {
         this.setState({ counters: decrementCounters });
     };
 
-    getNonZeroItems = () => {
-        let countNonZero = 0;
-        this.state.counters.forEach((counter) => {
-            if (counter.value > 0) countNonZero++;
-        });
-        return countNonZero;
+    handleDelete = (id) => {
+        const filteredCounters = this.state.counters.filter(
+            (counter) => counter.id != id
+        );
+        this.setState({ counters: filteredCounters });
     };
 
     render() {
@@ -57,6 +64,7 @@ class App extends Component {
                     counters={this.state.counters}
                     onIncrement={this.handleIncrement}
                     onDecrement={this.handleDecrement}
+                    onDelete={this.handleDelete}
                 />
             </>
         );
