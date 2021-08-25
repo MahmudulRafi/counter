@@ -40,7 +40,7 @@ class Counter extends Component {
                                     )
                                 }
                                 type="button"
-                                class="btn btn-secondary m-2"
+                                class="btn btn-outline-dark m-2"
                             >
                                 Reset
                             </button>
@@ -49,7 +49,7 @@ class Counter extends Component {
                                     this.props.onDelete(this.props.id)
                                 }
                                 type="button"
-                                class="btn btn-danger m-2"
+                                class="btn btn-outline-danger m-2"
                             >
                                 Delete
                             </button>

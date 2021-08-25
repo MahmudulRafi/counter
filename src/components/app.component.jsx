@@ -3,6 +3,7 @@ import Navbar from './navbar.component';
 import Counters from './counters.component';
 import ResetButton from './resetButton.components';
 import AddNewButton from './addNewButton.component';
+import DeleteAllButton from './deleteAllButton.component';
 
 class App extends Component {
     state = {
@@ -29,12 +30,17 @@ class App extends Component {
         ];
         this.setState({ counters: newCountersState });
     };
+
     handleAllReset = () => {
         const allCounterReset = this.state.counters.map((counter, index) => {
             const obj = { id: index, value: 0 };
             return obj;
         });
         this.setState({ counters: allCounterReset });
+    };
+
+    handleDeleteAll = () => {
+        this.setState({ counters: [] });
     };
 
     handleIncrement = (id) => {
@@ -77,6 +83,7 @@ class App extends Component {
                 <Navbar nonZeroItems={this.getNonZeroItems()} />
                 <AddNewButton onAddNew={this.handleAddNew} />
                 <ResetButton onAllReset={this.handleAllReset} />
+                <DeleteAllButton onDeleteAll={this.handleDeleteAll} />
                 <Counters
                     counters={this.state.counters}
                     onIncrement={this.handleIncrement}
