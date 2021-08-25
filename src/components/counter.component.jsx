@@ -12,7 +12,7 @@ class Counter extends Component {
                 <ul>
                     <li class="list-unstyled">
                         <div>
-                            <span class="badge bg-primary">
+                            <span class="badge bg-pill bg-dark">
                                 {this.formatCount()}
                             </span>
                             <button

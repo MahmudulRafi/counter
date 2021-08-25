@@ -8,7 +8,7 @@ class Navbar extends Component {
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         Counters{' '}
-                        <span class="badge bg-secondary">
+                        <span class="badge bg-dark">
                             {this.props.nonZeroItems}
                         </span>
                     </a>
