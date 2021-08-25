@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './navbar.component';
 import Counters from './counters.component';
-import Reset from './reset.components';
+import ResetButton from './resetButton.components';
+import AddNewButton from './addNewButton.component';
 
 class App extends Component {
     state = {
@@ -21,8 +22,14 @@ class App extends Component {
         });
         return countNonZero;
     };
-
-    handleReset = () => {
+    handleAddNew = () => {
+        const newCountersState = [
+            ...this.state.counters,
+            { id: this.state.counters.length, value: 0 },
+        ];
+        this.setState({ counters: newCountersState });
+    };
+    handleAllReset = () => {
         const allCounterReset = this.state.counters.map((counter, index) => {
             const obj = { id: index, value: 0 };
             return obj;
@@ -48,6 +55,15 @@ class App extends Component {
         this.setState({ counters: decrementCounters });
     };
 
+    handleSingleCounterReset = (id) => {
+        const resetSingleCounter = this.state.counters.map((counter) => {
+            if (counter.id === id) {
+                return { id: id, value: 0 };
+            } else return counter;
+        });
+        this.setState({ counters: resetSingleCounter });
+    };
+
     handleDelete = (id) => {
         const filteredCounters = this.state.counters.filter(
             (counter) => counter.id != id
@@ -59,12 +75,14 @@ class App extends Component {
         return (
             <>
                 <Navbar nonZeroItems={this.getNonZeroItems()} />
-                <Reset onReset={this.handleReset} />
+                <AddNewButton onAddNew={this.handleAddNew} />
+                <ResetButton onAllReset={this.handleAllReset} />
                 <Counters
                     counters={this.state.counters}
                     onIncrement={this.handleIncrement}
                     onDecrement={this.handleDecrement}
                     onDelete={this.handleDelete}
+                    onSingleCounterReset={this.handleSingleCounterReset}
                 />
             </>
         );

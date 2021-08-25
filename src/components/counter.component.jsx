@@ -35,6 +35,17 @@ class Counter extends Component {
                             </button>
                             <button
                                 onClick={() =>
+                                    this.props.onSingleCounterReset(
+                                        this.props.id
+                                    )
+                                }
+                                type="button"
+                                class="btn btn-secondary m-2"
+                            >
+                                Reset
+                            </button>
+                            <button
+                                onClick={() =>
                                     this.props.onDelete(this.props.id)
                                 }
                                 type="button"

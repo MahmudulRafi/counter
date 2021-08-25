@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-class Reset extends Component {
+class ResetButton extends Component {
     state = {};
     render() {
         return (
             <button
-                onClick={this.props.onReset}
+                onClick={this.props.onAllReset}
                 type="button"
                 class="btn btn-warning m-2"
             >
-                Reset
+                Reset All
             </button>
         );
     }
 }
 
-export default Reset;
+export default ResetButton;
