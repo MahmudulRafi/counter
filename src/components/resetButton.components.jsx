@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ResetButton extends Component {
     state = {};
@@ -7,7 +7,7 @@ class ResetButton extends Component {
             <button
                 onClick={this.props.onAllReset}
                 type="button"
-                class="btn btn-warning m-2"
+                className="btn btn-warning m-2"
             >
                 Reset All
             </button>

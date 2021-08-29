@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import Navbar from './navbar.component';
-import Counters from './counters.component';
-import ResetButton from './resetButton.components';
-import AddNewButton from './addNewButton.component';
-import DeleteAllButton from './deleteAllButton.component';
+import React, { Component } from "react";
+import Navbar from "./navbar.component";
+import Counters from "./counters.component";
+import ResetButton from "./resetButton.components";
+import AddNewButton from "./addNewButton.component";
+import DeleteAllButton from "./deleteAllButton.component";
 
 class App extends Component {
     state = {
         counters: [
-            { id: 0, value: 0 },
-            { id: 1, value: 0 },
-            { id: 2, value: 0 },
-            { id: 3, value: 0 },
-            { id: 4, value: 0 },
+            { id: 100, value: 0 },
+            { id: 101, value: 0 },
+            { id: 102, value: 0 },
+            { id: 103, value: 0 },
+            { id: 104, value: 0 },
         ],
     };
 
@@ -23,10 +23,14 @@ class App extends Component {
         });
         return countNonZero;
     };
+
     handleAddNew = () => {
         const newCountersState = [
             ...this.state.counters,
-            { id: this.state.counters.length, value: 0 },
+            {
+                id: Math.floor(Math.random() * 1000),
+                value: 0,
+            },
         ];
         this.setState({ counters: newCountersState });
     };
@@ -45,7 +49,7 @@ class App extends Component {
 
     handleIncrement = (id) => {
         const incrementCounters = this.state.counters.map((counter, index) => {
-            if (counter.id == id)
+            if (counter.id === id)
                 return { id: index, value: counter.value + 1 };
             else return counter;
         });
@@ -54,7 +58,7 @@ class App extends Component {
 
     handleDecrement = (id) => {
         const decrementCounters = this.state.counters.map((counter, index) => {
-            if (counter.id == id && counter.value > 0)
+            if (counter.id === id && counter.value > 0)
                 return { id: index, value: counter.value - 1 };
             else return counter;
         });
@@ -72,7 +76,7 @@ class App extends Component {
 
     handleDelete = (id) => {
         const filteredCounters = this.state.counters.filter(
-            (counter) => counter.id != id
+            (counter) => counter.id !== id
         );
         this.setState({ counters: filteredCounters });
     };

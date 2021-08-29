@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class DeleteAllButton extends Component {
     render() {
@@ -6,7 +6,7 @@ class DeleteAllButton extends Component {
             <button
                 onClick={this.props.onDeleteAll}
                 type="button"
-                class="btn btn-danger m-2"
+                className="btn btn-danger m-2"
             >
                 Delete All
             </button>

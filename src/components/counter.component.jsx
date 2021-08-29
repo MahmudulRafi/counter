@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Counter extends Component {
     formatCount = () => {
-        if (this.props.value == 0) return 'Zero';
+        if (this.props.value == 0) return "Zero";
         return this.props.value;
     };
 
@@ -10,9 +10,9 @@ class Counter extends Component {
         return (
             <>
                 <ul>
-                    <li class="list-unstyled">
+                    <li className="list-unstyled">
                         <div>
-                            <span class="badge bg-pill bg-dark">
+                            <span className="badge bg-pill bg-dark">
                                 {this.formatCount()}
                             </span>
                             <button
@@ -20,7 +20,7 @@ class Counter extends Component {
                                     this.props.onIncrement(this.props.id)
                                 }
                                 type="button"
-                                class="btn btn-secondary m-2"
+                                className="btn btn-secondary m-2"
                             >
                                 +
                             </button>
@@ -29,7 +29,7 @@ class Counter extends Component {
                                     this.props.onDecrement(this.props.id)
                                 }
                                 type="button"
-                                class="btn btn-secondary m-2"
+                                className="btn btn-secondary m-2"
                             >
                                 -
                             </button>
@@ -40,7 +40,7 @@ class Counter extends Component {
                                     )
                                 }
                                 type="button"
-                                class="btn btn-outline-dark m-2"
+                                className="btn btn-outline-dark m-2"
                             >
                                 Reset
                             </button>
@@ -49,7 +49,7 @@ class Counter extends Component {
                                     this.props.onDelete(this.props.id)
                                 }
                                 type="button"
-                                class="btn btn-outline-danger m-2"
+                                className="btn btn-outline-danger m-2"
                             >
                                 Delete
                             </button>
