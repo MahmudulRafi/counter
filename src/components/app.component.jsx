@@ -8,11 +8,11 @@ import DeleteAllButton from "./deleteAllButton.component";
 class App extends Component {
     state = {
         counters: [
-            { id: 100, value: 0 },
-            { id: 101, value: 0 },
-            { id: 102, value: 0 },
-            { id: 103, value: 0 },
-            { id: 104, value: 0 },
+            { id: 0, value: 0 },
+            { id: 1, value: 0 },
+            { id: 2, value: 0 },
+            { id: 3, value: 0 },
+            { id: 4, value: 0 },
         ],
     };
 
