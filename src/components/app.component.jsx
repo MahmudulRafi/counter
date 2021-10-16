@@ -1,103 +1,100 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Navbar from "./navbar.component";
 import Counters from "./counters.component";
 import ResetButton from "./resetButton.components";
 import AddNewButton from "./addNewButton.component";
 import DeleteAllButton from "./deleteAllButton.component";
 
-class App extends Component {
-    state = {
-        counters: [
-            { id: 0, value: 0 },
-            { id: 1, value: 0 },
-            { id: 2, value: 0 },
-            { id: 3, value: 0 },
-            { id: 4, value: 0 },
-        ],
-    };
+function App() {
+    const [counters, setCounters] = useState([
+        { id: 0, value: 0 },
+        { id: 1, value: 0 },
+        { id: 2, value: 0 },
+        { id: 3, value: 0 },
+        { id: 4, value: 0 },
+    ]);
 
-    getNonZeroItems = () => {
+    const getNonZeroItems = () => {
         let countNonZero = 0;
-        this.state.counters.forEach((counter) => {
+        counters.forEach((counter) => {
             if (counter.value > 0) countNonZero++;
         });
         return countNonZero;
     };
 
-    handleAddNew = () => {
+    const handleAddNew = () => {
         const newCountersState = [
-            ...this.state.counters,
+            ...counters,
             {
                 id: Math.floor(Math.random() * 1000),
                 value: 0,
             },
         ];
-        this.setState({ counters: newCountersState });
+
+        setCounters(newCountersState);
     };
 
-    handleAllReset = () => {
-        const allCounterReset = this.state.counters.map((counter, index) => {
+    const handleAllReset = () => {
+        const allCounterReset = counters.map((counter, index) => {
             const obj = { id: index, value: 0 };
             return obj;
         });
-        this.setState({ counters: allCounterReset });
+        setCounters(allCounterReset);
     };
 
-    handleDeleteAll = () => {
-        this.setState({ counters: [] });
+    const handleDeleteAll = () => {
+        setCounters([]);
     };
 
-    handleIncrement = (id) => {
-        const incrementCounters = this.state.counters.map((counter, index) => {
+    const handleIncrement = (id) => {
+        const incrementCounters = counters.map((counter, index) => {
             if (counter.id === id)
                 return { id: index, value: counter.value + 1 };
             else return counter;
         });
-        this.setState({ counters: incrementCounters });
+        setCounters(incrementCounters);
     };
 
-    handleDecrement = (id) => {
-        const decrementCounters = this.state.counters.map((counter, index) => {
+    const handleDecrement = (id) => {
+        const decrementCounters = counters.map((counter, index) => {
             if (counter.id === id && counter.value > 0)
                 return { id: index, value: counter.value - 1 };
             else return counter;
         });
-        this.setState({ counters: decrementCounters });
+        setCounters(decrementCounters);
     };
 
-    handleSingleCounterReset = (id) => {
-        const resetSingleCounter = this.state.counters.map((counter) => {
+    const handleSingleCounterReset = (id) => {
+        const resetSingleCounter = counters.map((counter) => {
             if (counter.id === id) {
                 return { id: id, value: 0 };
             } else return counter;
         });
-        this.setState({ counters: resetSingleCounter });
+        setCounters(resetSingleCounter);
     };
 
-    handleDelete = (id) => {
-        const filteredCounters = this.state.counters.filter(
+    const handleDelete = (id) => {
+        const filteredCounters = counters.filter(
             (counter) => counter.id !== id
         );
-        this.setState({ counters: filteredCounters });
+        setCounters(filteredCounters);
     };
 
-    render() {
-        return (
-            <>
-                <Navbar nonZeroItems={this.getNonZeroItems()} />
-                <AddNewButton onAddNew={this.handleAddNew} />
-                <ResetButton onAllReset={this.handleAllReset} />
-                <DeleteAllButton onDeleteAll={this.handleDeleteAll} />
-                <Counters
-                    counters={this.state.counters}
-                    onIncrement={this.handleIncrement}
-                    onDecrement={this.handleDecrement}
-                    onDelete={this.handleDelete}
-                    onSingleCounterReset={this.handleSingleCounterReset}
-                />
-            </>
-        );
-    }
+    return (
+        <>
+            <Navbar nonZeroItems={getNonZeroItems()} />
+            <AddNewButton onAddNew={handleAddNew} />
+            <ResetButton onAllReset={handleAllReset} />
+            <DeleteAllButton onDeleteAll={handleDeleteAll} />
+            <Counters
+                counters={counters}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+                onDelete={handleDelete}
+                onSingleCounterReset={handleSingleCounterReset}
+            />
+        </>
+    );
 }
 
 export default App;
