@@ -1,9 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { resetAllCounters } from "../redux/actions/counterActions";
 
 function ResetButton() {
+    const dispatch = useDispatch();
     return (
         <button
-            onClick={this.props.onAllReset}
+            onClick={() => dispatch(resetAllCounters())}
             type="button"
             className="btn btn-warning m-2"
         >

@@ -1,48 +1,50 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    decrementCounter,
+    incrementCounter,
+    resetCounter,
+    deleteCounter,
+} from "../redux/actions/counterActions";
 
-function Counter() {
+function Counter({ value, id }) {
     const formatCount = () => {
-        if (this.props.value == 0) return "Zero";
-        return this.props.value;
+        if (value == 0) return "Zero";
+        return value;
     };
 
+    const dispatch = useDispatch();
     return (
         <>
             <ul>
                 <li className="list-unstyled">
                     <div>
                         <span className="badge bg-pill bg-dark">
-                            {this.formatCount()}
+                            {formatCount()}
                         </span>
                         <button
-                            onClick={() =>
-                                this.props.onIncrement(this.props.id)
-                            }
+                            onClick={() => dispatch(incrementCounter(id))}
                             type="button"
                             className="btn btn-secondary m-2"
                         >
                             +
                         </button>
                         <button
-                            onClick={() =>
-                                this.props.onDecrement(this.props.id)
-                            }
+                            onClick={() => dispatch(decrementCounter(id))}
                             type="button"
                             className="btn btn-secondary m-2"
                         >
                             -
                         </button>
                         <button
-                            onClick={() =>
-                                this.props.onSingleCounterReset(this.props.id)
-                            }
+                            onClick={() => dispatch(resetCounter(id))}
                             type="button"
                             className="btn btn-outline-dark m-2"
                         >
                             Reset
                         </button>
                         <button
-                            onClick={() => this.props.onDelete(this.props.id)}
+                            onClick={() => dispatch(deleteCounter(id))}
                             type="button"
                             className="btn btn-outline-danger m-2"
                         >

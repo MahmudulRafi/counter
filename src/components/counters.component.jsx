@@ -1,22 +1,16 @@
-import React, { Component } from "react";
-import Counter from "./counter.component";
+import React from "react";
+import Counter from "./Counter.component";
+import { useSelector } from "react-redux";
 
-class Counters extends Component {
-    render() {
-        return this.props.counters.map((counters) => {
-            return (
-                <Counter
-                    key={counters.id}
-                    value={counters.value}
-                    id={counters.id}
-                    onIncrement={this.props.onIncrement}
-                    onDecrement={this.props.onDecrement}
-                    onDelete={this.props.onDelete}
-                    onSingleCounterReset={this.props.onSingleCounterReset}
-                />
-            );
-        });
-    }
+export default function Counters() {
+    const counters = useSelector((state) => state.countersState.counters);
+    return counters.map((counters) => {
+        return (
+            <Counter
+                key={counters.id}
+                value={counters.value}
+                id={counters.id}
+            />
+        );
+    });
 }
-
-export default Counters;
