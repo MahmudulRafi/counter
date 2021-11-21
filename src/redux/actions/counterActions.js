@@ -1,4 +1,4 @@
-import { ActionTypes } from "../contants/actionTypes";
+import { ActionTypes } from "../constants/actionTypes";
 
 export const addNewCounter = () => {
     return {

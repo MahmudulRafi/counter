@@ -26,6 +26,7 @@ function Counter({ value, id }) {
                             onClick={() => dispatch(incrementCounter(id))}
                             type="button"
                             className="btn btn-secondary m-2"
+                            style={{ outline: "none", boxShadow: "none" }}
                         >
                             +
                         </button>
@@ -33,6 +34,7 @@ function Counter({ value, id }) {
                             onClick={() => dispatch(decrementCounter(id))}
                             type="button"
                             className="btn btn-secondary m-2"
+                            style={{ outline: "none", boxShadow: "none" }}
                         >
                             -
                         </button>
@@ -40,6 +42,7 @@ function Counter({ value, id }) {
                             onClick={() => dispatch(resetCounter(id))}
                             type="button"
                             className="btn btn-outline-dark m-2"
+                            style={{ outline: "none", boxShadow: "none" }}
                         >
                             Reset
                         </button>
@@ -47,6 +50,7 @@ function Counter({ value, id }) {
                             onClick={() => dispatch(deleteCounter(id))}
                             type="button"
                             className="btn btn-outline-danger m-2"
+                            style={{ outline: "none", boxShadow: "none" }}
                         >
                             Delete
                         </button>

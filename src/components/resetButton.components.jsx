@@ -9,6 +9,7 @@ function ResetButton() {
             onClick={() => dispatch(resetAllCounters())}
             type="button"
             className="btn btn-warning m-2"
+            style={{ outline: "none", boxShadow: "none" }}
         >
             Reset All
         </button>

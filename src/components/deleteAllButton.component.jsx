@@ -9,6 +9,7 @@ function DeleteAllButton() {
             onClick={() => dispatch(deleteAllCounters())}
             type="button"
             className="btn btn-danger m-2"
+            style={{ outline: "none", boxShadow: "none" }}
         >
             Delete All
         </button>

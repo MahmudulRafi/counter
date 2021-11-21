@@ -9,6 +9,7 @@ function AddNewButton() {
             onClick={() => dispatch(addNewCounter())}
             type="button"
             className="btn btn-success m-2"
+            style={{ outline: "none", boxShadow: "none" }}
         >
             Add New
         </button>
